@@ -7,6 +7,7 @@ import "./newProduct.scss";
 import ErrorField from "../error/Error";
 import { connect } from "react-redux";
 import { addProduct } from "../../product/product.actions";
+import Textarea from "../../Textarea";
 
 const initialValues = {
   name: "",
@@ -103,6 +104,7 @@ const NewProduct = ({ closeModal, addProduct }) => {
                   Description
                 </label>
                 <Field
+                  as={Textarea}
                   name="description"
                   type="text"
                   className="modal-input input"
