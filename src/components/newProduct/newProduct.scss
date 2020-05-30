@@ -1,0 +1,91 @@
+.conatainer {
+  width: 600px;
+  margin: 20px auto;
+
+  &__product-info {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__photo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  &__img {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    align-items: center;
+  }
+
+  &__photo-products {
+    max-width: 100%;
+  }
+
+  &__btn-save {
+    border: none;
+    width: 200px;
+    height: 40px;
+    background-color: #3fb580;
+    color: #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
+.modal-add-product {
+  width: 640px;
+  top: 100px;
+  box-shadow: 0px 0px 5px 5px #dddddd;
+  background-color: #fafafa;
+  position: fixed;
+  z-index: 2;
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #db313b;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.modal-input {
+  margin: 10px 0;
+  height: 40px;
+}
+
+.label {
+  color: #aaa;
+  display: inline-block;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.btn-submit {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 200px;
+  color: #fff;
+  background-color: #8bc53f;
+}
