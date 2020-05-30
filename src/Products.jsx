@@ -82,15 +82,6 @@ class Products extends Component {
     });
   };
 
-  deleteProduct = (id) => {
-    const updateProductsList = this.state.products.filter(
-      (product) => product.id !== id
-    );
-    this.setState({
-      products: updateProductsList,
-    });
-  };
-
   searchProduct = (text) => {
     const filterName = this.state.products.filter(
       (product) => product.name === text
@@ -117,10 +108,7 @@ class Products extends Component {
             addProduct={this.addProduct}
           />
         )}
-        <ProductList
-          products={this.state.products}
-          deleteProduct={this.deleteProduct}
-        />
+        <ProductList />
       </div>
     );
   }

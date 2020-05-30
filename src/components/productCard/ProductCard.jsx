@@ -1,6 +1,8 @@
 import React from "react";
 import defaultImg from "../../img/default.png";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { deleteProduct } from "../../product/product.actions";
 
 const ProductCard = ({ product, deleteProduct }) => {
   const { image, name, description, price, id } = product;
@@ -29,6 +31,10 @@ const ProductCard = ({ product, deleteProduct }) => {
   );
 };
 
+const mapDispatch = {
+  deleteProduct: deleteProduct,
+};
+
 ProductCard.propTypes = {
   product: PropTypes.shape({
     image: PropTypes.string.isRequired,
@@ -40,4 +46,4 @@ ProductCard.propTypes = {
   deleteProduct: PropTypes.func.isRequired,
 };
 
-export default ProductCard;
+export default connect(null, mapDispatch)(ProductCard);
