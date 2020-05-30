@@ -8,16 +8,8 @@ const Header = ({ searchProduct }) => {
   const [text, setValue] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
   const closeModal = () => {
     setModalOpen(false);
-  };
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
   };
 
   return (
@@ -28,7 +20,7 @@ const Header = ({ searchProduct }) => {
           placeholder="name or description"
           type="text"
           value={text}
-          onChange={(event) => handleChange(event)}
+          onChange={(event) => setValue(event.target.value)}
         />
         <button
           className="search-product__btn btn"
@@ -38,7 +30,10 @@ const Header = ({ searchProduct }) => {
         </button>
       </div>
       <div className="add-product">
-        <button className="add-product__btn btn" onClick={openModal}>
+        <button
+          className="add-product__btn btn"
+          onClick={() => setModalOpen(true)}
+        >
           Add Product
         </button>
       </div>
@@ -53,7 +48,6 @@ const mapDispatch = {
 
 Header.propTypes = {
   searchProduct: PropTypes.func.isRequired,
-  // openModal: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatch)(Header);
