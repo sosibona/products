@@ -2,18 +2,31 @@ import React from "react";
 import defaultImg from "../../img/default.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { deleteProduct } from "../../product/product.actions";
+import { deleteProduct, pinProduct } from "../../product/product.actions";
+import { pinProductSelector } from "../../product/product.selectors";
 
-const ProductCard = ({ product, deleteProduct }) => {
+const ProductCard = ({ product, deleteProduct, pinProduct, pinedProduct }) => {
+  console.log(pinedProduct);
   const { image, name, description, price, id } = product;
+  const style =
+    pinedProduct === id ? "product-card product-card__pinned" : "product-card";
+  const stylePin =
+    pinedProduct === id
+      ? "product-card__pin product-card__pin_pinned"
+      : "product-card__pin";
   return (
-    <div className="product-card">
-      <button className="product-card__pin">
+    <div className={style}>
+      <button
+        className={stylePin}
+        onClick={() => pinProduct(id)}
+        disabled={pinedProduct && !(pinedProduct === id)}
+      >
         <i className="fas fa-thumbtack"></i>
       </button>
       <button
         className="product-card__delete"
         onClick={() => deleteProduct(id)}
+        disabled={pinedProduct === id}
       >
         <i className="fas fa-minus-circle"></i>
       </button>
@@ -31,8 +44,15 @@ const ProductCard = ({ product, deleteProduct }) => {
   );
 };
 
+const mapState = (state) => {
+  return {
+    pinedProduct: pinProductSelector(state),
+  };
+};
+
 const mapDispatch = {
   deleteProduct: deleteProduct,
+  pinProduct: pinProduct,
 };
 
 ProductCard.propTypes = {
@@ -46,4 +66,4 @@ ProductCard.propTypes = {
   deleteProduct: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatch)(ProductCard);
+export default connect(mapState, mapDispatch)(ProductCard);

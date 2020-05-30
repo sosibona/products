@@ -16,7 +16,7 @@ const initialValues = {
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
-  price: Yup.number("Invalid type").required("Required"),
+  price: Yup.number().min(1, "Invalid price"),
 });
 
 const NewProduct = ({ closeModal, addProduct }) => {
@@ -56,18 +56,18 @@ const NewProduct = ({ closeModal, addProduct }) => {
       <button className="modal-add-product__close" onClick={closeModal}>
         <i className="far fa-times-circle"></i>
       </button>
-      <div className="conatainer">
+      <div className="container">
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
           validationSchema={validationSchema}
         >
-          <Form className="conatainer__form">
-            <div className="conatainer__product-info">
-              <div className="conatainer__photo">
-                <div className="conatainer__img">
+          <Form className="container__form">
+            <div className="container__product-info">
+              <div className="container__photo">
+                <div className="container__img">
                   <img
-                    className="conatainer__photo-products"
+                    className="container__photo-products"
                     src={ImagePreview || defaultImg}
                     alt="user_avatar"
                   />
@@ -79,7 +79,7 @@ const NewProduct = ({ closeModal, addProduct }) => {
                   onChange={(event) => handleImageChange(event)}
                 />
               </div>
-              <div className="conatainer__description">
+              <div className="container__description">
                 <label className="label" htmlFor="name">
                   Name
                 </label>

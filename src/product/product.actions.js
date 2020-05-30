@@ -1,10 +1,20 @@
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
 export const SEARCH_PRODUCT = "SEARCH_PRODUCT";
 export const ADD_PRODUCT = "ADD_PRODUCT";
+export const PIN_PRODUCT = "PIN_PRODUCT";
 
 export const deleteProduct = (id) => {
   return {
     type: DELETE_PRODUCT,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const pinProduct = (id) => {
+  return {
+    type: PIN_PRODUCT,
     payload: {
       id,
     },

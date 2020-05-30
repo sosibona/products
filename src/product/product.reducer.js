@@ -1,4 +1,9 @@
-import { DELETE_PRODUCT, ADD_PRODUCT, SEARCH_PRODUCT } from "./product.actions";
+import {
+  DELETE_PRODUCT,
+  ADD_PRODUCT,
+  SEARCH_PRODUCT,
+  PIN_PRODUCT,
+} from "./product.actions";
 
 const initialState = {
   products: [
@@ -52,6 +57,7 @@ const initialState = {
     },
   ],
   searchText: "",
+  pinProduct: "",
 };
 
 const productReducer = (state = initialState, action) => {
@@ -79,6 +85,24 @@ const productReducer = (state = initialState, action) => {
         ...state,
         searchText: action.payload.text,
       };
+    }
+    case PIN_PRODUCT: {
+      if (!state.pinProduct) {
+        return {
+          ...state,
+          pinProduct: action.payload.id,
+        };
+      } else {
+        return {
+          ...state,
+          pinProduct: "",
+        };
+      }
+      // console.log(action.payload.id);
+      // return {
+      //   ...state,
+      //   pinProduct: action.payload.id,
+      // };
     }
     default: {
       return state;
