@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ProductCard from "../productCard/ProductCard";
 import { connect } from "react-redux";
-import { productSelector } from "../../product/product.selectors";
+import { filterProductSelector } from "../../product/product.selectors";
 
 const ProductList = ({ products }) => {
   const productsList = products.map((product) => (
@@ -13,7 +13,7 @@ const ProductList = ({ products }) => {
 
 const mapState = (state) => {
   return {
-    products: productSelector(state),
+    products: filterProductSelector(state),
   };
 };
 

@@ -5,6 +5,8 @@ import defaultImg from "../../img/default.png";
 import * as Yup from "yup";
 import "./newProduct.scss";
 import ErrorField from "../error/Error";
+import { connect } from "react-redux";
+import { addProduct } from "../../product/product.actions";
 
 const initialValues = {
   name: "",
@@ -117,9 +119,13 @@ const NewProduct = ({ closeModal, addProduct }) => {
   );
 };
 
+const mapDispatch = {
+  addProduct: addProduct,
+};
+
 NewProduct.propTypes = {
   closeModal: PropTypes.func.isRequired,
   addProduct: PropTypes.func.isRequired,
 };
 
-export default NewProduct;
+export default connect(null, mapDispatch)(NewProduct);

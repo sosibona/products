@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-// import NewProduct from "../newProduct/NewProduct";
+import { connect } from "react-redux";
+import { searchProduct } from "../../product/product.actions";
+import NewProduct from "../newProduct/NewProduct";
 
-const Header = ({ searchProduct, openModal }) => {
+const Header = ({ searchProduct }) => {
   const [text, setValue] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -31,13 +42,18 @@ const Header = ({ searchProduct, openModal }) => {
           Add Product
         </button>
       </div>
+      {isModalOpen && <NewProduct closeModal={closeModal} />}
     </header>
   );
 };
 
-Header.propTypes = {
-  searchProduct: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
+const mapDispatch = {
+  searchProduct: searchProduct,
 };
 
-export default Header;
+Header.propTypes = {
+  searchProduct: PropTypes.func.isRequired,
+  // openModal: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatch)(Header);
