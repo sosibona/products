@@ -1,6 +1,6 @@
 # Products list
 
-### Go **[here](https://sosibona.github.io/products/)** for live demo.
+### Go **[here](https://laughing-gates-12af65.netlify.app/)** for live demo.
 
 # Installing
 
