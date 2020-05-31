@@ -15,8 +15,11 @@ Run `npm install`
 + HTML5
 + CSS3
 + Flexbox
++ Grid
 + Sass (Scss)
 + BEM methodology
 + JS ES6
 + ReactJS
 + Redux
++ Material UI
++ Formik
