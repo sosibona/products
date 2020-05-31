@@ -13,7 +13,6 @@ const ProductList = ({ products }) => {
 };
 
 const mapState = (state) => {
-  console.log(filterProductSelector(state));
   return {
     products: filterProductSelector(state),
   };

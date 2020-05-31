@@ -7,7 +7,6 @@ import { pinProductSelector } from "../../product/product.selectors";
 import "./productCard.scss";
 
 const ProductCard = ({ product, deleteProduct, pinProduct, pinedProduct }) => {
-  console.log(pinedProduct);
   const { image, name, description, price, id } = product;
   const style =
     pinedProduct === id ? "product-card product-card__pinned" : "product-card";
