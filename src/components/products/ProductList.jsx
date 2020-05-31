@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ProductCard from "../productCard/ProductCard";
 import { connect } from "react-redux";
 import { filterProductSelector } from "../../product/product.selectors";
+import "./productList.scss";
 
 const ProductList = ({ products }) => {
   const productsList = products.map((product) => (

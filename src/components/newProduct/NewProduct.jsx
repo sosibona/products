@@ -7,7 +7,7 @@ import "./newProduct.scss";
 import ErrorField from "../error/Error";
 import { connect } from "react-redux";
 import { addProduct } from "../../product/product.actions";
-import Textarea from "../../Textarea";
+import Textarea from "../textarea/Textarea";
 
 const initialValues = {
   name: "",

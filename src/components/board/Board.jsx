@@ -1,8 +1,9 @@
 import React from "react";
-import Header from "./components/header/Header";
-import ProductList from "./components/products/ProductList";
+import Header from "../header/Header";
+import ProductList from "../products/ProductList";
+import "./board.scss";
 
-const Products = () => {
+const Board = () => {
   return (
     <div className="products">
       <Header />
@@ -12,4 +13,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Board;

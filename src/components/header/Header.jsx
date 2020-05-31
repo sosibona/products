@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { searchProduct } from "../../product/product.actions";
 import NewProduct from "../newProduct/NewProduct";
+import "./header.scss";
 
 const Header = ({ searchProduct }) => {
   const [text, setValue] = useState("");
@@ -34,7 +35,7 @@ const Header = ({ searchProduct }) => {
           className="add-product__btn btn"
           onClick={() => setModalOpen(true)}
         >
-          Add Product
+          Add
         </button>
       </div>
       {isModalOpen && <NewProduct closeModal={closeModal} />}

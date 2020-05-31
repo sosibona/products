@@ -1,0 +1,21 @@
+$lg: 992px;
+$sm: 576px;
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+}
+
+@media screen and (min-width: $sm) and (max-width: $lg - 1) {
+  .products-list {
+    grid-template-columns: repeat(2, 288px);
+  }
+}
+
+@media screen and (max-width: $sm - 1) {
+  .products-list {
+    grid-template-columns: repeat(1, 450px);
+  }
+}

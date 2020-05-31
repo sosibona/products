@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteProduct, pinProduct } from "../../product/product.actions";
 import { pinProductSelector } from "../../product/product.selectors";
+import "./productCard.scss";
 
 const ProductCard = ({ product, deleteProduct, pinProduct, pinedProduct }) => {
   console.log(pinedProduct);
