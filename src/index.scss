@@ -28,6 +28,10 @@ body {
   line-height: 13px;
   font-weight: 700;
   margin-left: 20px;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .input {
