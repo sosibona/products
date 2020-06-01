@@ -12,9 +12,11 @@ export const filterByTextSelector = (state) => {
 
   if (!searchText) return products;
 
-  const filterName = products.filter((product) => product.name === searchText);
+  const filterName = products.filter((product) =>
+    product.name.toLowerCase().includes(searchText.toLowerCase())
+  );
   const filterDescription = products.filter((product) =>
-    product.description.includes(searchText)
+    product.description.toLowerCase().includes(searchText.toLowerCase())
   );
   return [...filterName, ...filterDescription];
 };
@@ -34,13 +36,15 @@ export const filterProductSelector = (state) => {
     const otherProduct = products.filter(
       (product) => product.id !== pinProduct
     );
-    if (searchText) {
-      return Array.from(new Set(pin.concat(filterProduct)));
-    }
-    return pin.concat(otherProduct);
+
+    return searchText
+      ? Array.from(new Set(pin.concat(filterProduct)))
+      : pin.concat(otherProduct);
   }
-  if (!searchText) {
-    return products;
-  }
-  return Array.from(new Set(filterProduct));
+
+  return searchText ? Array.from(new Set(filterProduct)) : products;
+  // if (!searchText) {
+  //   return products;
+  // }
+  // return Array.from(new Set(filterProduct));
 };

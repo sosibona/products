@@ -98,11 +98,6 @@ const productReducer = (state = initialState, action) => {
           pinProduct: "",
         };
       }
-      // console.log(action.payload.id);
-      // return {
-      //   ...state,
-      //   pinProduct: action.payload.id,
-      // };
     }
     default: {
       return state;

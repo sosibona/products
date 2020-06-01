@@ -41,8 +41,8 @@ const NewProduct = ({ closeModal, addProduct }) => {
   const handleImageChange = useCallback((event) => {
     event.preventDefault();
 
-    let reader = new FileReader();
-    let file = event.target.files[0];
+    const reader = new FileReader();
+    const file = event.target.files[0];
 
     reader.onloadend = () => {
       setImage(URL.createObjectURL(file));
